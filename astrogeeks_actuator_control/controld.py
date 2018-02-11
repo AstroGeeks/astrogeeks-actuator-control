@@ -62,17 +62,13 @@ def main():
 @atexit.register
 def exit_handler():
     """
-    Reset and cleanup the actuators.
+    Close connections and finish tasks.
     """
     # Wait until everything has finished processing
     loop = asyncio.get_event_loop()
     for task in asyncio.Task.all_tasks():
         task.cancel()
         loop.run_until_complete(asyncio.gather(task, return_exceptions = True))
-
-    # Clean up actuators
-    for actuator in actuators:
-        actuator.reset()
 
     # Clean up sockets
     context.destroy()
