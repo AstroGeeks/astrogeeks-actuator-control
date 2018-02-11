@@ -73,3 +73,25 @@ Example:
 { "className": "Tec", "name": "Temp", "pin": 17 }
 ```
 
+# Crontab compatability
+
+Example:
+```bash
+@reboot sudo pigpiod
+@reboot cd path-to-actuator-control && ./controld
+
+# From 6:00 to 17:59
+* 6-17 * * * cd path-to-actuator-control && ./control "Led.Blue" 20.0
+* 6-17 * * * cd path-to-actuator-control && ./control "Led.Red" 80.0
+* 6-17 * * * cd path-to-actuator-control && ./control "Led.FarRed" 80.0
+* 6-17 * * * cd path-to-actuator-control && ./control "Fan" 1
+* 6-17 * * * cd path-to-actuator-control && ./control "Temp" 25.0
+
+# From 18:00 to 5:59
+* 18-23,0-5 * * * cd path-to-actuator-control && ./control "Led.Blue" 10.0
+* 18-23,0-5 * * * cd path-to-actuator-control && ./control "Led.Red" 40.0
+* 18-23,0-5 * * * cd path-to-actuator-control && ./control "Led.FarRed" 40.0
+* 18-23,0-5 * * * cd path-to-actuator-control && ./control "Fan" 1
+* 18-23,0-5 * * * cd path-to-actuator-control && ./control "Temp" 15.0
+```
+
