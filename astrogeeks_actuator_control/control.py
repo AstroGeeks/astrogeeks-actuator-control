@@ -1,3 +1,5 @@
+import asyncio
+import atexit
 import sys
 import zmq
 
