@@ -19,7 +19,7 @@ class Led(Actuator):
         print("Setting Led(Pin {}) to {}".format(self.pin, var))
         self.pi.set_PWM_dutycycle(self.pin, int(clamp(var, 0.0, 100.0) * 2.56))
 
-    async def run(self):
+    async def update(self):
         """
         Update the led.
         This does nothing.

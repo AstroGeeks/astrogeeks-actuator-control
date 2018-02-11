@@ -19,7 +19,7 @@ class Fan(Actuator):
         print("Setting Fan(Pin {}) to {}".format(self.pin, var > 0))
         self.pi.write(self.pin, int(clamp(var, 0, 1)))
         
-    async def run(self):
+    async def update(self):
         """
         Update the fan.
         This does nothing.

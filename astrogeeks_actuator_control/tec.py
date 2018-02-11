@@ -56,7 +56,7 @@ class Tec(Actuator):
         """
         self.targetTemp = clamp(var, 10.0, 30.0)
     
-    async def run(self):
+    async def update(self):
         """
         Update the tec by comparing the target against the case temperature.
         Warning: This function will throw an exception when temperatures higher than TEC_TEMP_LIMIT are reached.
