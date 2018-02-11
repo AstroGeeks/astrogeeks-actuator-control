@@ -72,6 +72,9 @@ def exit_handler():
 
     # Clean up sockets
     context.destroy()
+
+    # Close pigpio connection
+    pi.stop()
     
 if __name__ == "__main__":
     main()
