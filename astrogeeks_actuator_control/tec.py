@@ -61,9 +61,9 @@ class Tec(Actuator):
         Update the tec by comparing the target against the case temperature.
         Warning: This function will throw an exception when temperatures higher than TEC_TEMP_LIMIT are reached.
         """
-        caseTemp =  await __readDht22()
-        topTemp =  __getTempTopSide()
-        bottomTemp =  __getTempBottomSide()
+        caseTemp =  await self.__readDht22()
+        topTemp =  self.__getTempTopSide()
+        bottomTemp =  self.__getTempBottomSide()
 
         if (topTemp >= TEC_TEMP_LIMIT or bottomTemp >= TEC_TEMP_LIMIT):
             raise TemperatureError()
