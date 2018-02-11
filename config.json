@@ -1,0 +1,10 @@
+{
+    "actuators": [
+        { "className": "Led", "name": "LED.BLUE", "pin": 24 },
+        { "className": "Led", "name": "LED.RED", "pin": 25 },
+        { "className": "Led", "name": "LED.FAR", "pin": 18 },
+        { "className": "Fan", "name": "FAN", "pin": 20 },
+        { "className": "Fan", "name": "FAN", "pin": 21 },
+        { "className": "Tec", "name": "TEMP", "pin": 17 }
+    ]
+}
