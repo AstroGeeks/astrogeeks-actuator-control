@@ -56,30 +56,18 @@ Example:
 # Supported actuators
 
 ## Leds
-Configuration:
-```json
-{ "className": "Led", "name": "", "pin": 0 }
-```
 Example:
 ```json
-{ "className": "Led", "name": "Led.Blue", "pin": 24 },
+{ "className": "Led", "name": "Led.Blue", "pin": 24 }
 ```
 
 ## Fans
-Configuration: 
-```json
-{ "className": "Fan", "name": "", "pin": 0 }
-```
 Example:
 ```json
-{ "className": "Fan", "name": "Fan", "pin": 20 },
+{ "className": "Fan", "name": "Fan", "pin": 20 }
 ```
 
 ## Thermoelectric Coolers
-Configuration: 
-```json
-{ "className": "Tec", "name": "", "pin": 0 }
-```
 Example:
 ```json
 { "className": "Tec", "name": "Temp", "pin": 17 }
