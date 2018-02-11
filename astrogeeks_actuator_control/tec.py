@@ -76,10 +76,10 @@ class Tec(Actuator):
 
         self.__updateLtc2631(current)
 
-    def __getTempTopSide():
+    def __getTempTopSide(self):
         return  __readPcf8591(2)
 
-    def __getTempBottomSide():
+    def __getTempBottomSide(self):
         return  __readPcf8591(3)
 
     def __updateLtc2631(self, current):
