@@ -55,8 +55,6 @@ class Dht22:
 
             self.cb = None
 
-            atexit.register(self.cancel)
-
             self.suc_M = 0   # Successful message count.
             self.bad_CS = 0  # Bad checksum count.
             self.bad_SM = 0  # Short message count.
