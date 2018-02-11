@@ -39,13 +39,6 @@ class Tec(Actuator):
 
         # Initialize the sensor to measure the case temperature
         self.dht22 = Dht22(pigpio.pi(), self.pin)
-        
-    def __del__(self):
-        self.__updateLtc2631(0)
-        self.__updatePcf8591(0)
-
-        self.pi.i2c_close(self.ltc2631Handle)
-        self.pi.i2c_close(self.pcf8591Handle)
 
     def set(self, var):
         """
@@ -53,6 +46,16 @@ class Tec(Actuator):
         """
         self.targetTemp = clamp(var, 10.0, 30.0)
     
+    def reset(self):
+        """
+        Clear Adc, Dac and close I²C connections.
+        """
+        self.__updateLtc2631(0)
+        self.__updatePcf8591(0)
+
+        self.pi.i2c_close(self.ltc2631Handle)
+        self.pi.i2c_close(self.pcf8591Handle)
+
     async def update(self):
         """
         Update the tec by comparing the target against the case temperature.

@@ -11,13 +11,16 @@ class Actuator(object):
         self.pin = pin
 
     @abc.abstractmethod
-    def __del__(self):
-        raise NotImplementedError()
-
-    @abc.abstractmethod
     def set(self, var):
         """
         Set a target for the actuator.
+        """
+        raise NotImplementedError()
+
+    @abc.abstractmethod
+    def reset(self):
+        """
+        Reset the target for the actuator.
         """
         raise NotImplementedError()
 

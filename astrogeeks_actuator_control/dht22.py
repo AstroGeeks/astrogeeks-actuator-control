@@ -79,7 +79,10 @@ class Dht22:
 
             self.cb = pi.callback(gpio, pigpio.EITHER_EDGE, self.__cb)
 
-      def __del__(self):
+      def cancel(self):
+            """
+            Cancel the sensor.
+            """
             self.pi.set_watchdog(self.gpio, 0)
 
             if self.cb is not None:
