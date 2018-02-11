@@ -41,9 +41,6 @@ class Tec(Actuator):
         self.dht22 = Dht22(pigpio.pi(), self.pin)
         
     def __del__(self):
-        """
-        Reset the tec.
-        """
         self.__updateLtc2631(0)
         self.__updatePcf8591(0)
 
