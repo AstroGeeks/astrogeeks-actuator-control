@@ -1,10 +1,10 @@
 # AstroGeeks Actuator Control
 This repository contains the code to control various actuators of the AstroPlant kit and our custom Tec controller.
 
-More info about our project can be found [here](http://astrogeeksgent.wordpress.com).
+You can find more info about our project [here](http://astrogeeksgent.wordpress.com).
 
 # Configure actuators
-The configuration for the actuators can be modified in `config.json`.
+You can modify the configuration for the actuators in `config.json`.
 
 For example, a basic configuration is as follows:
 ```json
@@ -33,7 +33,7 @@ If you would like to use our custom Tec controller, the configuration is as foll
 ```
 
 # Run the daemon
-To run the daemon, perform:
+To run the daemon, do:
 ```bash
 ./controld (port = 4130)
 ```
@@ -43,7 +43,7 @@ Example:
 ```
 
 # Control an actuator
-To control an actuator, perform:
+To control an actuator, do:
 ```bash
 ./control [name] [target] (port = 4130)
 ```
@@ -73,7 +73,7 @@ Example:
 { "className": "Tec", "name": "Temp", "pin": 17 }
 ```
 
-# Crontab compatability
+# Crontab compatibility
 
 Example:
 ```bash
@@ -94,4 +94,3 @@ Example:
 * 18-23,0-5 * * * cd path-to-actuator-control && ./control "Fan" 1
 * 18-23,0-5 * * * cd path-to-actuator-control && ./control "Temp" 15.0
 ```
-
