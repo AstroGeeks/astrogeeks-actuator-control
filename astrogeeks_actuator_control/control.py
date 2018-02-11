@@ -1,4 +1,3 @@
-import asyncio
 import atexit
 import sys
 import zmq
@@ -31,12 +30,6 @@ def exit_handler():
     """
     Close connections.
     """
-    # Wait until everything has finished processing
-    loop = asyncio.get_event_loop()
-    for task in asyncio.Task.all_tasks():
-        task.cancel()
-        loop.run_until_complete(asyncio.gather(task, return_exceptions = True))
-
     # Clean up sockets
     context.destroy()
     
