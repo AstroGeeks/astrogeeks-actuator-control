@@ -70,9 +70,14 @@ class Tec(Actuator):
 
         if (abs(caseTemp - self.targetTemp) >= TEC_DELTA_TEMP_THRESHOLD):
             if (caseTemp < self.targetTemp):
-                current = clamp(current + TEC_DELTA_CURRENT, 0, TEC_RATED_CURRENT)
+                current = clamp(current + TEC_DELTA_CURRENT, -TEC_RATED_CURRENT, TEC_RATED_CURRENT)
             elif (caseTemp > self.targetTemp):
-                current = clamp(current - TEC_DELTA_CURRENT, 0, TEC_RATED_CURRENT)
+                current = clamp(current - TEC_DELTA_CURRENT, -TEC_RATED_CURRENT, TEC_RATED_CURRENT)
+
+	if (current < 0):
+            self.__updatePcf8591(1)
+        else:
+            self.__updatePcf8591(0)
 
         self.__updateLtc2631(current)
 
