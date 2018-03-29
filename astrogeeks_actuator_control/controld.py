@@ -53,9 +53,10 @@ def main():
             pass
 
         # Update all actuators
+        loop = asyncio.get_event_loop()
         for actuator in actuators:
-            asyncio.ensure_future(actuator.update())
-            
+            #asyncio.ensure_future(actuator.update())
+            loop.run_until_complete(actuator.update())
         # Wait for tasks to complete
         time.sleep(0.5)
         

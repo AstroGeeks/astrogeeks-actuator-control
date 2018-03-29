@@ -6,7 +6,7 @@ import pigpio
 import threading
 import time
 
-DHT22_TIMEOUT = 1.0 # in seconds
+DHT22_TIMEOUT = 10.0 # in seconds
 
 class Dht22:
       """
@@ -96,14 +96,15 @@ class Dht22:
             """
             last_successful_message_count = self.__successful_message_count()
 
-            self.__trigger
+            self.__trigger()
                   
             # Wait untill we have a valid reading
             start = time.time()
-            while (self.__successful_message_count() != last_successful_message_count and cb is not None):
+            while (self.__successful_message_count() != last_successful_message_count and self.cb is not None):
                   if (time.time() - start >= DHT22_TIMEOUT):
-                        raise TimeoutError()
-                  sleep(0.1)
+                        print("[ERROR]: DHT22 Timed Out")
+                        break
+                  time.sleep(0.1)
 
       def temperature(self):
             """

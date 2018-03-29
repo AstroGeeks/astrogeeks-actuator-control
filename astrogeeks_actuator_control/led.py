@@ -14,7 +14,7 @@ class Led(Actuator):
         Set a target for the led (0.0-100.0).
         """
         print("Setting Led(Pin {}) to {}".format(self.pin, var))
-        self.pi.set_PWM_dutycycle(self.pin, int(clamp(var, 0.0, 100.0) * 2.56))
+        self.pi.set_PWM_dutycycle(self.pin, int(clamp(var, 0.0, 100.0) * 2.55))
 
     def reset(self):
         """
